@@ -1,2 +1,2 @@
-# Desafio Modulo04_02_React
+# Desafio Modulo_04 React: Estado de los componentes y eventos
 ## Build: https://estado-de-componentes-m4-d2-react.netlify.app/
