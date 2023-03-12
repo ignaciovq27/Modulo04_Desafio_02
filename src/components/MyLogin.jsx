@@ -33,11 +33,10 @@ const MyLogin = ({ setMessage, setShowAlert, setTitle, setVariant }) => {
         setVariant(email === userEmail && password === userPassword ? "success" : "danger");
         setShowAlert(true)
 
-        //Ejecutar funcion de desaparecer alert
-        
-        setTimeout(() => {
-            setShowAlert(false)
-        }, "3000");
+        // //Ejecutar funcion de desaparecer alert
+        // setTimeout(() => {
+        //     setShowAlert(false)
+        // }, "3000");
     }
 
     return (
