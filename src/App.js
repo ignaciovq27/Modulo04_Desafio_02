@@ -10,7 +10,7 @@ import MyLogin from './components/MyLogin';
 
 function App() {
 
-  //Estado para errores y alert
+  //Estados para errores y alert
   const [message, setMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [title, setTitle] = useState("");
@@ -20,6 +20,10 @@ function App() {
     <div className="App Container">
       <div className="style">
         <Header text="Desafío: Estado de los componentes y eventos" />
+        <h4 style={{color: 'blue'}}>Datos de login:</h4>
+        <h5 style={{color: 'blue'}}>Email = " 1 " </h5>
+        <h5 style={{color: 'blue'}}>Password = " 1 "</h5>
+
       </div>
       <MyLogin
         setMessage={setMessage}

@@ -28,10 +28,23 @@ const MyLogin = ({ setMessage, setShowAlert, setTitle, setVariant }) => {
     };
 
     const comprobarLogin = () => {
-        setMessage(email === userEmail && password === userPassword ? "Login realizado correctamente." : "Los datos ingresados no son correctos.");
-        setTitle(email === userEmail && password === userPassword ? "¡EXITO!" : "HAY UN ERROR");
-        setVariant(email === userEmail && password === userPassword ? "success" : "danger");
-        setShowAlert(true)
+        // setMessage(email === userEmail && password === userPassword ? "Login realizado correctamente." : "Los datos ingresados no son correctos.");
+        // setTitle(email === userEmail && password === userPassword ? "¡ÉXITO!" : "HAY UN ERROR");
+        // setVariant(email === userEmail && password === userPassword ? "success" : "danger");
+        // setShowAlert(true)
+
+        if (email === userEmail && password === userPassword) {
+            setMessage("Login realizado correctamente.")
+            setTitle("¡EXITO!")
+            setVariant("success")
+            setShowAlert(true)
+        }
+        else {
+            setMessage("Los datos ingresados no son correctos.")
+            setTitle("HAY UN ERROR")
+            setVariant("danger")
+            setShowAlert(true)
+        }
 
         // //Ejecutar funcion de desaparecer alert
         // setTimeout(() => {
@@ -64,7 +77,7 @@ const MyLogin = ({ setMessage, setShowAlert, setTitle, setVariant }) => {
                     />
                 </Form.Group>
 
-                <Button className="text-align: center;"
+                <Button
                     variant="primary"
                     type="submit"
                     disabled={inButtonDisabled}
