@@ -2,30 +2,43 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 
-
-const MyLogin = () => {
+const MyLogin = ({ setMessage, setShowAlert, setTitle, setVariant }) => {
 
     //Estados de formulario
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    //Estado para errores
-    const [error, setError] = useState(false);
+    //Datos login de usuario:
+    const userEmail = "1"
+    const userPassword = "1"
+
+    const inButtonDisabled = !email.trim() || !password.trim()
 
     //Funcion de validacion de datos del formulario:
     const handleSubmit = (e) => {
         e.preventDefault()
 
         // Validación de formularios
-        if (!email.trim() || !password.trim()) {
-            setError(true);
+        if (inButtonDisabled) {
             return
         }
-        setError(false);
 
-        // Ejecutar funcion de agregarUsuarios
-        // agregarUsuario()
+        // Ejecutar funcion de comprobación
+        comprobarLogin()
     };
+
+    const comprobarLogin = () => {
+        setMessage(email === userEmail && password === userPassword ? "Login realizado correctamente." : "Los datos ingresados no son correctos.");
+        setTitle(email === userEmail && password === userPassword ? "¡EXITO!" : "HAY UN ERROR");
+        setVariant(email === userEmail && password === userPassword ? "success" : "danger");
+        setShowAlert(true)
+
+        //Ejecutar funcion de desaparecer alert
+        
+        setTimeout(() => {
+            setShowAlert(false)
+        }, "3000");
+    }
 
     return (
         <>
@@ -55,12 +68,10 @@ const MyLogin = () => {
                 <Button className="text-align: center;"
                     variant="primary"
                     type="submit"
-                // disabled
+                    disabled={inButtonDisabled}
                 >
                     Iniciar Sesión
                 </Button>
-                {/* Aviso de error de datos */}
-                {error ? <p className="error">Todos los campos son obligatorios.</p> : null}
             </Form>
 
         </>

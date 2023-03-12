@@ -1,33 +1,22 @@
 import Alert from 'react-bootstrap/Alert';
-import { useState } from 'react';
 
+const MyAlert = ({
+    message = "",
+    isShown = false,
+    title = "",
+    variant = "",
+}) => {
 
-const MyAlert = (variant) => {
-    const [show, setShow] = useState(false);
-
-    if (show) {
+    if (isShown) {
         return (
-            <Alert variant={variant} onClose={() => setShow(false)} dismissible>
-                <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-                <p>
-                    Change this and that and try again. Duis mollis, est non commodo
-                    luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cras mattis consectetur purus sit amet fermentum.
-                </p>
+            <Alert
+                className="m-3"
+                variant={variant}
+            >
+                <Alert.Heading >{title}</Alert.Heading>
+                <p>{message}</p>
             </Alert>
         );
     }
-
-    return (
-        <>
-            <Alert
-                key="myAlert"
-                variant={variant}
-                className='mt-3'
-                >
-            </Alert>
-
-        </>
-    );
 }
 export default MyAlert
